@@ -1,0 +1,91 @@
+
+.vnot-tracking-timeline {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  position: relative;
+  height: fit-content;
+  flex-grow: 1;
+  min-width: 300px;
+}
+
+.vnot-tracking-timeline-icon {
+  min-width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.vnot-tracking-timeline-icon-default {
+  display: block;
+  background-color: #e5e7eb;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+
+.vnot-tracking-timeline-icon-check::after {
+  content: "";
+  display: block;
+  position: absolute;
+  padding: 2px 4px;
+  border-width: 0 0 2px 2px;
+  left: 4px;
+  top: 5px;
+  border-style: solid;
+  border-color: transparent transparent currentColor currentColor;
+  transform: rotate(-45deg);
+}
+
+.vnot-tracking-timeline::before {
+  content: "";
+  width: 1px;
+  height: calc(100% - 55px);
+  position: absolute;
+  background: #e5e7eb;
+  left: 126px;
+}
+
+.vnot-tracking-timeline-event {
+  display: flex;
+  column-gap: 20px;
+}
+
+.vnot-tracking-timeline-time-event {
+
+}
+
+.vnot-tracking-timeline-content {
+  min-height: 55px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+
+#vnot-parcel-item-quantity {
+  white-space: nowrap;
+}
+
+.vnot-polaris-icon {
+  display:inline-block;
+  vertical-align: bottom;
+}
+
+.vnot-flex-grow-1 {
+  flex-grow: 1;
+}
+
+.Polaris-IndexTable__TableCell:not(.Polaris-IndexTable__TableCell--flush),
+.Polaris-IndexTable__TableHeading
+{
+  padding: var(--p-space-200) var(--p-space-400) !important;
+}
+

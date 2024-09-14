@@ -1,0 +1,41 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "1b7b249b36b1fdef86049d84ea394496"
+name = "ViNext Order Tracking"
+handle = "vinext-order-tracking"
+application_url = "https://application-reno-suffer-organisations.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "mrtos.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,read_fulfillments,read_locales,read_orders,read_themes,write_content,write_fulfillments,write_orders,write_products,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://application-reno-suffer-organisations.trycloudflare.com/auth/callback",
+  "https://application-reno-suffer-organisations.trycloudflare.com/auth/shopify/callback",
+  "https://application-reno-suffer-organisations.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [
+    "app/uninstalled",
+    "fulfillment_events/create",
+    "fulfillment_events/delete",
+    "fulfillments/create",
+    "fulfillments/update"
+  ]
+  uri = "/webhooks"
+
+[app_proxy]
+url = "https://application-reno-suffer-organisations.trycloudflare.com/proxy"
+subpath = "vitracking"
+prefix = "apps"

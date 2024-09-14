@@ -1,0 +1,44 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "ff7f9c75f769acd0b1b963720dfc0fa3"
+name = "ViNext Order Tracking"
+handle = "vinext-order-tracking-2"
+application_url = "https://cartridges-visit-skin-mas.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "mrtos.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_content,read_customers,read_fulfillments,read_locales,read_orders,read_themes,write_content,write_fulfillments,write_orders,write_products,write_themes"
+
+[auth]
+redirect_urls = [
+  "https://cartridges-visit-skin-mas.trycloudflare.com/auth/callback",
+  "https://cartridges-visit-skin-mas.trycloudflare.com/auth/shopify/callback",
+  "https://cartridges-visit-skin-mas.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [
+  "app/uninstalled",
+  "fulfillment_events/create",
+  "fulfillment_events/delete",
+  "fulfillments/create",
+  "fulfillments/update"
+]
+  uri = "/webhooks"
+
+[app_proxy]
+url = "https://cartridges-visit-skin-mas.trycloudflare.com/proxy"
+subpath = "vitracking"
+prefix = "apps"
+
+[pos]
+embedded = false
